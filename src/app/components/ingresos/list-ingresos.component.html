@@ -1,0 +1,32 @@
+<div>
+    <div class="pt-2 pb-2 pl-4">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" name="buscar" [(ngModel)]="buscar" placeholder="Buscar" aria-label="Search">
+
+        </form>
+
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="titulos">Fecha</th>
+                <th class="titulos">Concepto</th>
+                <th class="titulos">Valor</th>
+                <th class="titulos">Descripcion</th>
+
+            </tr>
+        </thead>
+        <tbody *ngFor="let datos of ingresos">
+            <tr *ngFor="let info of datos.registros | egresos: buscar">
+
+
+                <td class="titulos">{{datos.fecha | date : 'dd/MM/yyyy'}}</td>
+                <td class="titulos">{{info.concepto}}</td>
+                <td class="titulos">{{info.valor}}</td>
+                <td class="titulos">{{info.descripcion}}</td>
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>

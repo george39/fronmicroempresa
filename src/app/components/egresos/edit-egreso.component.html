@@ -1,0 +1,11 @@
+<div>
+    <h1>{{title}}</h1>
+
+    <div *ngFor="let item of egreso">
+        <div *ngFor="let datos of item.registros">
+            <div>
+                <input type="text" [(ngModel)]="datos.descripcion">
+            </div>
+        </div>
+    </div>
+</div>

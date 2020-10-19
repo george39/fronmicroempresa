@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+
+#body {
+    background: rgb(19, 17, 17);
+}
+
+#title {
+    color: rgb(89, 175, 3);
+    padding-left: 10px;
+}
+
+#ingresos {
+    color: rgb(89, 175, 3);
+}
+
+#egresos {
+    color: rgb(89, 175, 3);
+}
+
+#nav {
+    background-color: rgb(59, 55, 51);
+}
+
+.egresos {
+    color: chocolate;
+}
+
+
+/*titulos de egresos */
+
+.titulos {
+    color: rgb(89, 175, 3);
+}
+
+.titulo {
+    color: rgb(89, 175, 3);
+}

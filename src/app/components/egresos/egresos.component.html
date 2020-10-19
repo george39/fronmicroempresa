@@ -1,0 +1,68 @@
+<div class="container">
+    <h1 class="titulo">{{title}}</h1>
+    <div class="col-1 pt-2">
+        <span>
+            <a class="btn btn-success" [routerLink]="'/listar-egresos'">Lista</a>
+        </span>
+    </div>
+
+    <div class="row">
+        <form [formGroup]="formData" (ngSubmit)="onSubmit(formData.value) ">
+            <div class="row titulos pt-3 pb-2">
+
+                <div class="col-4">
+                    <span>Concepto</span>
+                </div>
+                <div class="col-3">
+                    <span>Valor</span>
+                </div>
+                <div class="col-4">
+                    <span>Descripción</span>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div id=addresBlock formArrayName="registros">
+                    <div *ngFor="let item of addressListArray.controls; let i = index" [formGroupName]="[i]">
+                        <div class="row">
+                            <div class="">
+                                <select [ngModel]="seleccion" formControlName="concepto">   
+                                    
+                                    <option *ngFor="let o of salidas" [value]="o" >{{o}}</option>
+                                  </select>
+                            </div>
+                            <div class="pl-2 pr-2">
+                                <input class="form-control" type="number" placeholder="Valor" [ngModel]="valor" formControlName="valor">
+                            </div>
+                            <div class="pr-2">
+                                <textarea class="form-control" type="text" placeholder="Descripción" [ngModel]="descripcion" formControlName="descripcion"></textarea>
+                            </div>
+
+                            <div class="titulos">
+
+                                <span>    
+                                    <a class="btn btn-danger" (click)="removeAddress([i])">Eliminar</a>{{' ' + [i+1]}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-4">
+                        <div class="col-6">
+                            <span>    
+                                <a class="btn btn-success" (click)="addAddress()">Agregar</a>
+                            </span>
+                        </div>
+                        <div class="col-6">
+                            <span>    
+                                <a class="btn btn-success" (click)="onSubmit(formData.value)" type="submit">Guardar</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
